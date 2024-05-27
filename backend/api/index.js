@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const { message } = require('statuses');
 const cors = require('cors');
 
 const app = express();
@@ -42,6 +41,11 @@ const Seller = mongoose.model('Seller', sellerSchema);
 const Buyer = mongoose.model('Buyer', buyerSchema);
 
 // Routes
+
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
+
 app.post('/sell', async (req, res) => {
   try {
     const { name, phone, cycles } = req.body;
@@ -148,11 +152,9 @@ app.get('/buyers', async (req, res) => {
   }
 });
 
-
-
-
-
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;
