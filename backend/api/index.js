@@ -19,7 +19,9 @@ const sellerSchema = new mongoose.Schema({
   name: String,
   phone: String,
   cycles: [{
+    CycleBrand: String,
     name: String,
+    CycleDescription: String,
     price: Number,
     pics: [String],
   }],
@@ -46,7 +48,7 @@ app.get('/', (req, res) => {
   res.send('Hello World')
 })
 
-app.post('/sell', async (req, res) => {
+app.post('/Sell', async (req, res) => {
   try {
     const { name, phone, cycles } = req.body;
     const seller = await Seller.findOneAndUpdate({ phone }, { name, phone, cycles }, { upsert: true, new: true });

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Card from '../Components/Card';
-import { New_Card } from '../Components/New_Card';
+/* import Card from '../Components/Card'; */
+/* import { New_Card } from '../Components/New_Card'; */
 import { NewModal } from '../Components/NewModal';
 
 export default function HomePage() {
 const [product_array, setproduct_array] = useState()  
-const [Card_array, setCard_array] = useState([])
+/* const [Card_array, setCard_array] = useState([]) */
 let new_array=[];
-  
+/*   
 const options = {
   method: 'GET',
   url: 'https://real-time-amazon-data.p.rapidapi.com/search',
@@ -21,7 +21,7 @@ const options = {
     'X-RapidAPI-Key': '2232e65402msh4d6f8337a5d541dp19a965jsn7eadadbcf4e7',
     'X-RapidAPI-Host': 'real-time-amazon-data.p.rapidapi.com'
   }
-};
+}; */
 
   const getting_data = async () => {
   //   try {
@@ -33,7 +33,7 @@ const options = {
   //   }
   // };
   try {
-    const response = await axios.get('http://localhost:5000/cycles')
+    const response = await axios.get('https://backend-phi-gray.vercel.app/cycles')
     console.log(response.data.cycles);
     setproduct_array(response.data.cycles);
   } catch (error) {
